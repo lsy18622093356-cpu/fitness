@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workout Library – Muscle Groups</title>
+  <style>
+    :root{
+      --panel:#ffffff10;
+      --card:#ffffff15;
+      --ring:#1e293b;
+      --muted:#334155;
+      --text:#0f172a;
+      --tag:#e2e8f0;
+      --tagMain:#38bdf8;
+    }
+
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+
+    /* 🌤️ === B STYLE — BRIGHT CAMPUS ATHLETIC BACKGROUND === */
+    body{
+      margin:0;
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+
+      background:
+        linear-gradient(
+          180deg,
+          #dbeafe 0%,
+          #bfdbfe 15%,
+          #93c5fd 40%,
+          #60a5fa 70%,
+          #3b82f6 100%
+        );
+
+      /* soft stadium light effect */
+      background-attachment: fixed;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:24px auto 32px;
+      padding:16px;
+    }
+
+    .app{
+      background:rgba(255,255,255,0.55);
+      backdrop-filter:blur(14px);
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.7);
+      box-shadow:0 25px 55px rgba(30,58,138,0.35);
+      overflow:hidden;
+    }
+
+    header{
+      padding:20px;
+      background:rgba(255,255,255,0.4);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.7);
+    }
+
+    header h1{
+      margin:0;
+      font-size:22px;
+      font-weight:700;
+      color:#0f172a;
+    }
+
+    .sub{
+      margin-top:4px;
+      font-size:13px;
+      color:#334155;
+    }
+
+    .nav-row{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .nav-chip{
+      font-size:12px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #93c5fd;
+      color:#1e3a8a;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 2px 5px rgba(0,0,0,0.08);
+    }
+    .nav-chip:hover{
+      background:#eff6ff;
+      border-color:#3b82f6;
+      color:#1e40af;
+    }
+
+    main{
+      padding:22px;
+      display:flex;flex-direction:column;gap:22px;
+    }
+
+    .group{
+      padding:18px;
+      border-radius:16px;
+      background:#ffffffbb;
+      border:1px solid rgba(148,163,184,0.35);
+      box-shadow:0 10px 30px rgba(59,130,246,0.18);
+    }
+
+    .group-title{
+      margin:0;
+      font-size:18px;
+      color:#0f172a;
+      font-weight:700;
+    }
+
+    .group-sub{
+      font-size:13px;
+      color:#475569;
+      margin-top:4px;
+    }
+
+    .exercise-grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    @media (min-width:760px){
+      .exercise-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    .exercise-card{
+      background:#ffffffee;
+      border-radius:14px;
+      border:1px solid #cbd5e1;
+      padding:12px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .ex-title{
+      font-size:15px;
+      font-weight:600;
+      color:#0f172a;
+      margin-bottom:4px;
+    }
+
+    .tags{
+      display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;
+    }
+
+    .tag{
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      background:#e2e8f0;
+      color:#1e293b;
+    }
+    .tag.main{
+      background:#3b82f6;
+      color:white;
+    }
+
+    .body-text{
+      font-size:13px;
+      color:#334155;
+      margin-bottom:8px;
+    }
+
+    .video-wrap{
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid #bfdbfe;
+    }
+    iframe{width:100%;height:205px;border:0;}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="app">
+
+      <header>
+        <h1>Workout Library – By Muscle Group</h1>
+        <div class="sub">Exercise demonstrations with video tutorials.</div>
+
+        <div class="nav-row">
+          <a class="nav-chip" href="#chest">Chest</a>
+          <a class="nav-chip" href="#back">Back</a>
+          <a class="nav-chip" href="#legs">Legs & Glutes</a>
+          <a class="nav-chip" href="#arms">Arms & Shoulders</a>
+          <a class="nav-chip" href="#core">Core</a>
+          <a class="nav-chip" href="#fullbody">Full Body</a>
+        </div>
+      </header>
+
+
+      <!-- ================= CHEST ================= -->
+      <main>
+
+        <section class="group" id="chest">
+          <h2 class="group-title">Chest</h2>
+          <div class="group-sub">Pressing movements that train chest strength.</div>
+
+          <div class="exercise-grid">
+
+            <!-- Bench Press -->
+            <article class="exercise-card">
+              <div class="ex-title">Bench Press</div>
+              <div class="tags">
+                <span class="tag main">Chest</span><span class="tag">Shoulders</span><span class="tag">Triceps</span>
+              </div>
+              <div class="body-text">A compound pressing movement done lying on a bench. Builds chest size and pushing strength.</div>
+              <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/gRVjAtPip0Y" allowfullscreen></iframe>
+              </div>
+            </article>
+
+            <!-- Incline Bench -->
+            <article class="exercise-card">
+              <div class="ex-title">Incline Bench Press</div>
+              <div class="tags">
+                <span class="tag main">Upper Chest</span><span class="tag">Shoulders</span><span class="tag">Triceps</span>
+              </div>
+              <div class="body-text">Shift focus to the upper chest by pressing on an incline bench.</div>
+              <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/SCVCLChPQFY" allowfullscreen></iframe>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+
+        <!-- ================= BACK ================= -->
+        <section class="group" id="back">
+          <h2 class="group-title">Back</h2>
+          <div class="group-sub">Pulling movements for posture and back width.</div>
+
+          <div class="exercise-grid">
+            
+            <article class="exercise-card">
+              <div class="ex-title">Pull-up</div>
+              <div class="tags">
+                <span class="tag main">Lats</span><span class="tag">Upper Back</span><span class="tag">Biceps</span>
+              </div>
+              <div class="body-text">Classic bodyweight pulling movement targeting the lats.</div>
+              <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/eGo4IYlbE5g" allowfullscreen></iframe>
+              </div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Lat Pulldown</div>
+              <div class="tags">
+                <span class="tag main">Lats</span><span class="tag">Rear Shoulders</span><span class="tag">Biceps</span>
+              </div>
+              <div class="body-text">Machine variation mimicking the pull-up movement.</div>
+              <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/CAwf7n6Luuc" allowfullscreen></iframe>
+              </div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Standing Row</div>
+              <div class="tags">
+                <span class="tag main">Mid Back</span><span class="tag">Rear Shoulders</span>
+              </div>
+              <div class="body-text">Row movement performed standing. Builds back thickness.</div>
+              <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/kBWAon7ItDw" allowfullscreen></iframe>
+              </div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Deadlift</div>
+              <div class="tags">
+                <span class="tag main">Posterior Chain</span><span class="tag">Glutes</span><span class="tag">Hamstrings</span>
+              </div>
+              <div class="body-text">One of the strongest full-body lifts, training the entire back side.</div>
+              <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/5WnBBF5QzZs" allowfullscreen></iframe>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+
+        <!-- ================= LEGS ================= -->
+        <section class="group" id="legs">
+          <h2 class="group-title">Legs & Glutes</h2>
+          <div class="group-sub">Lower-body strength and performance movements.</div>
+
+          <div class="exercise-grid">
+
+            <article class="exercise-card">
+              <div class="ex-title">Squat</div>
+              <div class="tags">
+                <span class="tag main">Quads</span><span class="tag">Glutes</span><span class="tag">Hamstrings</span>
+              </div>
+              <div class="body-text">Fundamental leg exercise involving hip and knee extension.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/YaXPRqUwItQ" allowfullscreen></iframe></div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Glute Bridge</div>
+              <div class="tags">
+                <span class="tag main">Glutes</span><span class="tag">Hamstrings</span>
+              </div>
+              <div class="body-text">Hip extension movement focused on glute activation.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/wPM8icPu6H8" allowfullscreen></iframe></div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Calf Raise</div>
+              <div class="tags"><span class="tag main">Calves</span></div>
+              <div class="body-text">Strengthens calf muscles by raising the heels upward.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/YMmgqO8Jo-k" allowfullscreen></iframe></div>
+            </article>
+          </div>
+        </section>
+
+
+        <!-- ================= ARMS ================= -->
+        <section class="group" id="arms">
+          <h2 class="group-title">Arms & Shoulders</h2>
+          <div class="group-sub">Pressing, curling, and lifting for upper-body stability.</div>
+
+          <div class="exercise-grid">
+
+            <article class="exercise-card">
+              <div class="ex-title">Dumbbell Curl</div>
+              <div class="tags"><span class="tag main">Biceps</span></div>
+              <div class="body-text">An isolation movement targeting elbow flexion.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/yk6n0GpmK6E" allowfullscreen></iframe></div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Seated Shoulder Press</div>
+              <div class="tags">
+                <span class="tag main">Shoulders</span><span class="tag">Triceps</span>
+              </div>
+              <div class="body-text">Vertical pressing movement for shoulder mass.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/qEwKCR5JCog" allowfullscreen></iframe></div>
+            </article>
+
+          </div>
+        </section>
+
+
+        <!-- ================= CORE ================= -->
+        <section class="group" id="core">
+          <h2 class="group-title">Core</h2>
+          <div class="group-sub">Stability and abdominal strength exercises.</div>
+
+          <div class="exercise-grid">
+
+            <article class="exercise-card">
+              <div class="ex-title">Sit-ups</div>
+              <div class="tags"><span class="tag main">Upper Abs</span></div>
+              <div class="body-text">Classic abdominal exercise for curling the torso upward.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/jDwoBqPH0jk" allowfullscreen></iframe></div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Leg Raises</div>
+              <div class="tags"><span class="tag main">Lower Abs</span></div>
+              <div class="body-text">Lower ab movement done by lifting the legs.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/JB2oyawG9KI" allowfullscreen></iframe></div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Plank</div>
+              <div class="tags"><span class="tag main">Core</span></div>
+              <div class="body-text">Static stability exercise done in a straight-body position.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/ASdvN_XEl_c" allowfullscreen></iframe></div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Mountain Climbers</div>
+              <div class="tags">
+                <span class="tag main">Core</span><span class="tag">Cardio</span>
+              </div>
+              <div class="body-text">Fast-paced alternating knee drive movement.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/nmWG9EEjAuE" allowfullscreen></iframe></div>
+            </article>
+
+          </div>
+        </section>
+
+
+        <!-- ================= FULL BODY ================= -->
+        <section class="group" id="fullbody">
+          <h2 class="group-title">Full Body</h2>
+          <div class="group-sub">Movements that train many muscle groups together.</div>
+
+          <div class="exercise-grid">
+
+            <article class="exercise-card">
+              <div class="ex-title">Burpees</div>
+              <div class="tags">
+                <span class="tag main">Full Body</span><span class="tag">Cardio</span>
+              </div>
+              <div class="body-text">A combination of squat, plank, and jump.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/TU8QYVW0gDU" allowfullscreen></iframe></div>
+            </article>
+
+            <article class="exercise-card">
+              <div class="ex-title">Deadlift (Full Body)</div>
+              <div class="tags">
+                <span class="tag main">Posterior Chain</span><span class="tag">Glutes</span><span class="tag">Back</span>
+              </div>
+              <div class="body-text">A full-body strength movement involving hip hinge mechanics.</div>
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/5WnBBF5QzZs" allowfullscreen></iframe></div>
+            </article>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
